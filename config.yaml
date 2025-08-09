@@ -1,0 +1,108 @@
+
+# config for analysis
+
+# most CPUs to ever use at once
+max_cpus: 10
+
+# amplicons sequenced by PacBio
+amplicons: input_files/PacBio_amplicon.gb
+
+# the primary target for which we are calling mutations
+primary_target: INSR_PacBio_amplicon
+
+# how to parse the amplicon
+feature_parse_specs: input_files/insr_feature_parse_specs.yaml
+feature_parse_specs_updatedYML: input_files/insr_feature_parse_specs_updatedYML.yaml
+
+# list of PacBio sequencing runs linking barcodes to variants
+pacbio_runs: input_files/PacBio_runs.csv
+facs_runs: input_files/facs_runs.csv
+facs_runs_rep2: input_files/facs_runs_rep2.csv
+facs_runs_all: input_files/facs_runs_all.csv
+facs_runs_constantValues_1: input_files/facs_runs_constantValues_1.csv
+enrich2_scores: input_files/enrich2_scores.csv
+
+
+
+# enrich2 barcode counts
+enrich2_couns_8307: /Users/vaslanza/OneDrive - University of Edinburgh/insr_dms/enrich2_analysis/rep1/ab_83_07/tsv/sort_sel/main_barcodes_counts.tsv
+
+enrich2_analysis: /Users/vaslanza/OneDrive - University of Edinburgh/insr_dms/enrich2_analysis
+
+
+
+#2FAST2Q barcode counts:
+fast2q_count_1mm: 2fast2q_counts/eddie_output/2FAST2Q_output_2023_01_29_11_02_49/compiled_1mismatch.csv
+fast2q_count_2mm: 2fast2q_counts/eddie_output/2FAST2Q_output_2023_01_29_11_08_53/compiled_2mismatch.csv
+
+fast2q_count_1mm_stat: 2fast2q_counts/eddie_output/2FAST2Q_output_2023_01_29_11_02_49/compiled_1mismatch_stats.csv
+fast2q_count_2mm_stat: 2fast2q_counts/eddie_output/2FAST2Q_output_2023_01_29_11_08_53/compiled_2mismatch_stats.csv
+
+#consurf_conservations cores
+consfurf: input_files/consurf_scores.csv
+
+barcodes_for2FAST2Q: 2fast2q_counts/barcodes_for2FAST2Q.csv
+
+barcode_counts_dir: results/counts/barcode_counts/
+barcode_scores_dir: results/scores/bc_scores/
+
+
+#
+aligned_CCSs: results/process_ccs/INSR_PacBio_amplicon_aligned.csv
+filtered_CCSs: results/process_ccs/INSR_PacBio_amplicon_filtered.csv
+
+aligned_CCSs_updatedYML: results/process_ccs/INSR_PacBio_amplicon_aligned_updatedYML.csv
+filtered_CCSs_updatedYML: results/process_ccs/INSR_PacBio_amplicon_filtered_updatedYML.csv
+
+#Sorting stat
+sortstat_8307: /Users/vaslanza/OneDrive - University of Edinburgh/insr_dms/SortingData/83_7/Rep3/floreadastats.csv
+
+# output directories / files
+summary_dir: results/summary
+CCS_dir: results/CCS
+process_ccs_dir: results/process_ccs
+figs_dir: results/figures
+figs_dir_barcod_freq: results/figures/barcode_freq
+
+sfmap_dir: results/figures/sfmaps/
+sfmap_enrich2_dir: results/figures/sfmaps/enrich2/
+
+scores_dir: results/scores/
+
+counts_dir: results/counts
+
+processed_ccs_file: results/process_ccs/processed_ccs.csv
+nt_variant_table_file: results/variants/nucleotide_variant_table.csv
+codon_variant_table_file: results/variants/codon_variant_table.csv
+codon_variant_table_file_bcRevCom: results/variants/codon_variant_table_bcRevCom.csv
+codon_variant_table_forEnrich2: results/variants/barcode_variant_forEnrich2.tab
+
+
+variant_counts_file: results/counts/variant_counts.csv
+variant_counts_file_outliers: results/counts/variant_counts_outliers.csv
+
+expression_sortseq_dir: results/expression_meanF
+expression_sortseq_file: results/expression_meanF/bc_expression.csv
+
+# clinical data 
+clinical_db: input_files/clinical_db.xlsx
+gnomAD: input_files/gnomAD_v211_feb23.csv
+alanin_scan: input_files/Ala_scanning_summary.xlsx
+
+# max error rate in gene / barcode CCSs retained for consensu building
+max_error_rate: 0.0001
+max_error_rate_2: 0.000000001
+
+
+# Parameters for processing Illumina barcodes, assuming this structure:
+#  [R2 binds] - [upstream] - [barcode] - [downstream] - [R1 binds]
+#  This orientation is hard-wired in the barcode parser, but here it is opposite
+#  Therefore, supplied the "downstream" sequence as reverse complemented upstream
+# Passed to `dms_variants.illuminabarcodeparser.IlluminaBarcodeParser`:
+illumina_barcode_parser_params:
+  upstream: CAAGGCTTCCTT
+  downstream: ''
+  minq: 0
+  upstream_mismatch: 1
+  downstream_mismatch: 0
+  bc_orientation: 'R2'
