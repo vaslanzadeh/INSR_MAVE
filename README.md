@@ -1,6 +1,6 @@
 # INSR_MAVE Analysis Pipeline
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.5281/zenodo.xxxxxxx)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16788684.svg)](https://doi.org/10.5281/zenodo.16788684)
 
 ---
 
@@ -8,7 +8,7 @@
 
 The **analysis scripts** are provided in this repository.  
 All **required datasets** to run the scripts (including input files for each step) are hosted separately on Zenodo due to file size limits:  
-➡ **[Download the dataset from Zenodo (DOI: 10.5281/zenodo.xxxxxxx)](https://doi.org/10.5281/zenodo.xxxxxxx)**  
+➡ **[Download the dataset from Zenodo (DOI: 10.5281/zenodo.16788684)](https://doi.org/10.5281/zenodo.16788684)**  
 
 ---
 
