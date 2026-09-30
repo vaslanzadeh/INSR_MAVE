@@ -1,4 +1,4 @@
-# INSR_MAVE Analysis Pipeline
+# GBA1 MAVE Analysis Pipeline
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16788684.svg)](https://doi.org/10.5281/zenodo.16788684)
 
